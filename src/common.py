@@ -7,6 +7,7 @@ import sox
 DEFDROP = '---'
 SR = [
     DEFDROP,
+    8000,
     11025,
     16000,
     22050,
