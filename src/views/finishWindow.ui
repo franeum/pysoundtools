@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>171</width>
-    <height>91</height>
+    <width>209</width>
+    <height>133</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,14 +16,20 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 170, 127);</string>
   </property>
-  <widget class="QFrame" name="frame">
+  <widget class="QFrame" name="finish_frame">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>151</width>
-     <height>71</height>
+     <width>191</width>
+     <height>111</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QFrame#finish_frame {
+	border: 1px solid black;
+	border-radius: 	15px;
+}</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -34,15 +40,15 @@
    <widget class="QWidget" name="gridLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>20</x>
+      <y>20</y>
       <width>151</width>
       <height>71</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
      <item row="0" column="0">
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="label_done">
        <property name="font">
         <font>
          <family>Noto Sans</family>
@@ -50,6 +56,9 @@
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>DONE</string>
