@@ -7,7 +7,9 @@ from PyQt6.QtWidgets import QApplication, QDialog, QMainWindow, QPushButton, QFi
 from views.converterMain import Ui_MainWindow
 from converter.backend import AudioConverter
 
-DEFDROP = ['---']
+DEF_SAMPLERATE = 44100
+DEF_FILETYPE = 'wav'
+DEF_NR_OF_CHANNELS = 1
 
 
 class Window(QMainWindow):
@@ -40,7 +42,10 @@ class ConverterDlg(QDialog):
         self.ui.setupUi(self)
         self.dropdown_populate()
         self.converter = AudioConverter()
+
         self.controller()
+
+        # self.ui.perform_push.setEnabled(False)
 
     def dropdown_populate(self):
         self.ui.sr_dropdown.addItems([str(x) for x in common.SR])
@@ -50,20 +55,14 @@ class ConverterDlg(QDialog):
         # self.ui.subtype_dropdown.addItems(view_data.SUBTYPE)
 
     def controller(self):
-        self.ui.input_push_browse.clicked.connect(self.set_file)
+        self.ui.input_push_browse.clicked.connect(self.set_input_file)
         self.ui.output_push_browse.clicked.connect(self.set_output_dir)
-        self.ui.sr_dropdown.currentIndexChanged.connect(
-            lambda i: self.converter.set_samplerate(common.SR[i]))
-        self.ui.channels_dropdown.currentIndexChanged.connect(
-            lambda i: self.converter.set_channels(common.CHANNELS[i]))
         self.ui.format_dropdown.currentIndexChanged.connect(
             lambda i: self.set_format_all(common.FORMATS[i]))
-        self.ui.subtype_dropdown.currentIndexChanged.connect(
-            lambda i: print("subtype", i))
-        self.ui.perform_push.clicked.connect(self.converter.export)
+        self.ui.perform_push.clicked.connect(self.perform)
 
     def set_format_all(self, val):
-        self.converter.set_format(val)
+        # self.converter.set_format(val)
         old_text = self.ui.output_file_form.text()
 
         if not old_text:
@@ -72,15 +71,13 @@ class ConverterDlg(QDialog):
             old_text = Path(old_text)
             self.ui.output_file_form.setText(f'{old_text.stem}.{val}')
 
-    def set_file(self):
+    def set_input_file(self):
         formats = ' '.join([f"*.{x}" for x in common.FORMATS[1:]])
         f_name = QFileDialog.getOpenFileName(self,
                                              'Open file',
                                              str(Path('.')),
                                              f"Audio files ({formats})")
-
         filename = Path(f_name[0])
-
         self.ui.input_file_form.setText(str(filename))
 
         if self.converter.audioformat:
@@ -91,12 +88,35 @@ class ConverterDlg(QDialog):
         self.ui.output_file_form.setText(str_f)
 
     def set_output_dir(self):
-        dir = QFileDialog.getExistingDirectory(self,
-                                               'Open Directory',
-                                               str(Path('.')))
-        # QFileDialog.ShowDirsOnly
-        # | QFileDialog.DontResolveSymlinks)
-        self.ui.output_dir_form.setText(dir)
+        directory = QFileDialog.getExistingDirectory(self,
+                                                     'Open Directory',
+                                                     str(Path('.')))
+        self.ui.output_dir_form.setText(directory)
+
+    def set_source_path(self):
+        self.converter.sourcepath = self._input_file
+
+    def config_output_file(self):
+        output_dir = self.ui.output_dir_form.text()
+        output_file = self.ui.output_file_form.text()
+        input_file = self.ui.input_file_form.text()
+
+        sr_index = self.ui.sr_dropdown.currentIndex()
+        samplerate = common.SR[sr_index] if sr_index > 0 else DEF_SAMPLERATE
+        filetype_index = self.ui.format_dropdown.currentIndex()
+        filetype = common.FORMATS[filetype_index] if filetype_index > 0 else DEF_FILETYPE
+        channels = self.ui.channels_dropdown.currentIndex() or DEF_NR_OF_CHANNELS
+
+        self.converter.clear()
+        self.converter.sourcepath = Path(input_file)
+        self.converter.destpath = Path(output_dir) / Path(output_file)
+        self.converter.samplerate = samplerate
+        self.converter.channels = channels
+        self.converter.audioformat = filetype
+
+    def perform(self):
+        self.config_output_file()
+        self.converter.export()
 
 
 if __name__ == "__main__":
