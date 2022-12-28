@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>520</height>
+    <width>703</width>
+    <height>513</height>
    </rect>
   </property>
   <property name="font">
@@ -32,7 +32,7 @@
      <x>10</x>
      <y>10</y>
      <width>681</width>
-     <height>501</height>
+     <height>491</height>
     </rect>
    </property>
    <property name="font">
@@ -83,7 +83,7 @@
        <x>9</x>
        <y>9</y>
        <width>621</width>
-       <height>73</height>
+       <height>71</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout">
@@ -129,7 +129,7 @@ border-radius: 	15px;</string>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_3">
+         <widget class="QLineEdit" name="input_file_form">
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
@@ -154,9 +154,9 @@ border-radius: 	15px;</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>300</y>
+      <y>290</y>
       <width>641</width>
-      <height>131</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="font">
@@ -179,7 +179,7 @@ border-radius: 	15px;</string>
        <x>9</x>
        <y>9</y>
        <width>621</width>
-       <height>113</height>
+       <height>101</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
@@ -193,7 +193,7 @@ border-radius: 	15px;</string>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="lineEdit_2">
+         <widget class="QLineEdit" name="output_dir_form">
           <property name="styleSheet">
            <string notr="true">background-color: rgb(255, 255, 255);</string>
           </property>
@@ -266,7 +266,7 @@ border-radius: 	15px;</string>
       <x>20</x>
       <y>160</y>
       <width>641</width>
-      <height>131</height>
+      <height>121</height>
      </rect>
     </property>
     <property name="font">
@@ -289,7 +289,7 @@ border-radius: 	15px;</string>
        <x>10</x>
        <y>10</y>
        <width>621</width>
-       <height>111</height>
+       <height>101</height>
       </rect>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
@@ -438,12 +438,15 @@ border-radius: 	15px;</string>
     <property name="text">
      <string>CONVERTER</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QPushButton" name="perform_push">
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>440</y>
+      <y>430</y>
       <width>121</width>
       <height>41</height>
      </rect>

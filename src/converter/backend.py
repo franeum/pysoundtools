@@ -13,6 +13,7 @@ class AudioConverter:
 
     def __init__(self):
         self.tfm = sox.Transformer()
+        self._format = None
 
     @property
     def sourcepath(self):

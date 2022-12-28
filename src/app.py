@@ -3,7 +3,7 @@
 import sys
 from pathlib import Path
 import common
-from PyQt6.QtWidgets import QApplication, QDialog, QMainWindow, QPushButton
+from PyQt6.QtWidgets import QApplication, QDialog, QMainWindow, QPushButton, QFileDialog
 from views.converterMain import Ui_MainWindow
 from converter.backend import AudioConverter
 
@@ -17,13 +17,13 @@ class Window(QMainWindow):
         """Initializer."""
         super().__init__(parent)
         # Use a QPushButton for the central widget
-        self.centralWidget = QPushButton("CONVERTER")
+        self.central_widget = QPushButton("CONVERTER")
         # Connect the .clicked() signal with the .onEmployeeBtnClicked() slot
-        self.centralWidget.clicked.connect(self.onConverterBtnClicked)
-        self.setCentralWidget(self.centralWidget)
+        self.central_widget.clicked.connect(self.on_converter_btn_clicked)
+        self.setCentralWidget(self.central_widget)
 
     # Create a slot for launching the employee dialog
-    def onConverterBtnClicked(self):
+    def on_converter_btn_clicked(self):
         """Launch the converter dialog."""
         dlg = ConverterDlg(self)
         dlg.exec()
@@ -50,10 +50,8 @@ class ConverterDlg(QDialog):
         # self.ui.subtype_dropdown.addItems(view_data.SUBTYPE)
 
     def controller(self):
-        self.ui.input_push_browse.clicked.connect(
-            lambda: print("input push browse"))
-        self.ui.output_push_browse.clicked.connect(
-            lambda: print("output push browse"))
+        self.ui.input_push_browse.clicked.connect(self.set_file)
+        self.ui.output_push_browse.clicked.connect(self.set_output_dir)
         self.ui.sr_dropdown.currentIndexChanged.connect(
             lambda i: self.converter.set_samplerate(common.SR[i]))
         self.ui.channels_dropdown.currentIndexChanged.connect(
@@ -73,6 +71,32 @@ class ConverterDlg(QDialog):
         else:
             old_text = Path(old_text)
             self.ui.output_file_form.setText(f'{old_text.stem}.{val}')
+
+    def set_file(self):
+        formats = ' '.join([f"*.{x}" for x in common.FORMATS[1:]])
+        f_name = QFileDialog.getOpenFileName(self,
+                                             'Open file',
+                                             str(Path('.')),
+                                             f"Audio files ({formats})")
+
+        filename = Path(f_name[0])
+
+        self.ui.input_file_form.setText(str(filename))
+
+        if self.converter.audioformat:
+            str_f = f'{filename.stem}.{self.converter.audioformat}'
+        else:
+            str_f = str(filename.name)
+
+        self.ui.output_file_form.setText(str_f)
+
+    def set_output_dir(self):
+        dir = QFileDialog.getExistingDirectory(self,
+                                               'Open Directory',
+                                               str(Path('.')))
+        # QFileDialog.ShowDirsOnly
+        # | QFileDialog.DontResolveSymlinks)
+        self.ui.output_dir_form.setText(dir)
 
 
 if __name__ == "__main__":
