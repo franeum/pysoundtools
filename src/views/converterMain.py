@@ -9,10 +9,10 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(703, 513)
+class Ui_MainWin(object):
+    def setupUi(self, MainWin):
+        MainWin.setObjectName("MainWin")
+        MainWin.resize(703, 513)
         font = QtGui.QFont()
         font.setFamily("Noto Mono")
         font.setPointSize(14)
@@ -20,9 +20,9 @@ class Ui_MainWindow(object):
         font.setUnderline(False)
         font.setWeight(75)
         font.setStrikeOut(False)
-        MainWindow.setFont(font)
-        MainWindow.setStyleSheet("background-color: rgb(170, 255, 255);")
-        self.frame = QtWidgets.QFrame(MainWindow)
+        MainWin.setFont(font)
+        MainWin.setStyleSheet("background-color: rgb(170, 255, 255);")
+        self.frame = QtWidgets.QFrame(MainWin)
         self.frame.setGeometry(QtCore.QRect(10, 10, 681, 491))
         font = QtGui.QFont()
         font.setFamily("Sans Serif")
@@ -246,23 +246,23 @@ class Ui_MainWindow(object):
         self.perform_push.setStyleSheet("background-color: rgb(85, 170, 255);")
         self.perform_push.setObjectName("perform_push")
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(MainWin)
+        QtCore.QMetaObject.connectSlotsByName(MainWin)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWin):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Form"))
-        self.label_2.setText(_translate("MainWindow", "INPUT"))
-        self.label_3.setText(_translate("MainWindow", "File:"))
-        self.input_push_browse.setText(_translate("MainWindow", "Browse..."))
-        self.label_10.setText(_translate("MainWindow", "Directory:"))
-        self.output_push_browse.setText(_translate("MainWindow", "Browse..."))
-        self.label_9.setText(_translate("MainWindow", "OUTPUT"))
-        self.label.setText(_translate("MainWindow", "File: "))
-        self.label_5.setText(_translate("MainWindow", "sample rate:"))
-        self.label_6.setText(_translate("MainWindow", "channels:"))
-        self.label_4.setText(_translate("MainWindow", "CONFIG"))
-        self.label_7.setText(_translate("MainWindow", "format:"))
-        self.label_8.setText(_translate("MainWindow", "subtype:"))
-        self.label_11.setText(_translate("MainWindow", "CONVERTER"))
-        self.perform_push.setText(_translate("MainWindow", "PERFORM"))
+        MainWin.setWindowTitle(_translate("MainWin", "converterMain"))
+        self.label_2.setText(_translate("MainWin", "INPUT"))
+        self.label_3.setText(_translate("MainWin", "File:"))
+        self.input_push_browse.setText(_translate("MainWin", "Browse..."))
+        self.label_10.setText(_translate("MainWin", "Directory:"))
+        self.output_push_browse.setText(_translate("MainWin", "Browse..."))
+        self.label_9.setText(_translate("MainWin", "OUTPUT"))
+        self.label.setText(_translate("MainWin", "File: "))
+        self.label_5.setText(_translate("MainWin", "sample rate:"))
+        self.label_6.setText(_translate("MainWin", "channels:"))
+        self.label_4.setText(_translate("MainWin", "CONFIG"))
+        self.label_7.setText(_translate("MainWin", "format:"))
+        self.label_8.setText(_translate("MainWin", "subtype:"))
+        self.label_11.setText(_translate("MainWin", "CONVERTER"))
+        self.perform_push.setText(_translate("MainWin", "PERFORM"))

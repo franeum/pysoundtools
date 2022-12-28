@@ -5,8 +5,9 @@ from pathlib import Path
 import common
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QDialog, QMainWindow, QPushButton, QFileDialog
-from views.converterMain import Ui_MainWindow
+from views.converterMain import Ui_MainWin
 from views.finishWindow import Ui_Form
+from views.mainMenu import Ui_MainMenu
 from converter.backend import AudioConverter
 
 DEF_SAMPLERATE = 44100
@@ -15,21 +16,30 @@ DEF_NR_OF_CHANNELS = 1
 
 
 class Window(QMainWindow):
-    """Main window."""
+    """Main window.
 
     def __init__(self, parent=None):
-        """Initializer."""
         super().__init__(parent)
-        # Use a QPushButton for the central widget
         self.central_widget = QPushButton("CONVERTER")
-        # Connect the .clicked() signal with the .onEmployeeBtnClicked() slot
         self.central_widget.clicked.connect(self.on_converter_btn_clicked)
         self.setCentralWidget(self.central_widget)
 
     # Create a slot for launching the employee dialog
     def on_converter_btn_clicked(self):
-        """Launch the converter dialog."""
-        dlg = ConverterDlg(self)
+        dlg = ConverterDlg()
+        dlg.exec()
+    """
+
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        # Create an instance of the GUI
+        self.ui = Ui_MainMenu()
+        # Run the .setupUi() method to show the GUI
+        self.ui.setupUi(self)
+        self.ui.converter_push.clicked.connect(self.on_converter_btn_clicked)
+
+    def on_converter_btn_clicked(self):
+        dlg = ConverterDlg()
         dlg.exec()
 
 
@@ -39,12 +49,13 @@ class ConverterDlg(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         # Create an instance of the GUI
-        self.ui = Ui_MainWindow()
+        self.ui = Ui_MainWin()
         # Run the .setupUi() method to show the GUI
         self.ui.setupUi(self)
+
+        print(self.ui.__dict__)
         self.dropdown_populate()
         self.converter = AudioConverter()
-
         self.controller()
 
         # self.ui.perform_push.setEnabled(False)
