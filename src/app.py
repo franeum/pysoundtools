@@ -62,7 +62,7 @@ class ConverterDlg(QDialog):
         self.ui.perform_push.clicked.connect(self.perform)
 
     def set_format_all(self, val):
-        # self.converter.set_format(val)
+        self.converter.audioformat = val
         old_text = self.ui.output_file_form.text()
 
         if not old_text:
