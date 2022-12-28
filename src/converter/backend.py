@@ -74,4 +74,4 @@ class AudioConverter:
         # self.tfm.build_file(self._sourcepath, self._destpath)
         print(self.tfm.__dict__)
         print(self.sourcepath, self.destpath)
-        self.tfm.build_file(str(self.sourcepath), str(self.destpath))
+        return self.tfm.build_file(str(self.sourcepath), str(self.destpath))
