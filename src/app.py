@@ -3,8 +3,10 @@
 import sys
 from pathlib import Path
 import common
+from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QDialog, QMainWindow, QPushButton, QFileDialog
 from views.converterMain import Ui_MainWindow
+from views.finishWindow import Ui_Form
 from converter.backend import AudioConverter
 
 DEF_SAMPLERATE = 44100
@@ -116,7 +118,23 @@ class ConverterDlg(QDialog):
 
     def perform(self):
         self.config_output_file()
-        self.converter.export()
+        res = self.converter.export()
+        self.finish = FinishWindow()
+        if res:
+            self.finish.exec()
+
+
+class FinishWindow(QDialog):
+    def __init__(self, parent=None):
+        """Initializer."""
+        super().__init__(parent)
+
+        self.setWindowFlag(Qt.WindowType.FramelessWindowHint)
+
+        self.ui = Ui_Form()
+        # Run the .setupUi() method to show the GUI
+        self.ui.setupUi(self)
+        self.ui.exit_push.clicked.connect(self.close)
 
 
 if __name__ == "__main__":
