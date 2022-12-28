@@ -3,10 +3,6 @@
 from pathlib import Path
 import sox
 
-MOCKINPUT = Path(
-    '/home/neum/Documenti/jeff/DATABASE_JF/AUDIO_FILES/Bol_01.mp3')
-MOCKOUTPUT = Path('/home/neum/Documenti/pysoundtools/stokazzo.aif')
-
 
 class AudioConverter:
     """wrapper for sox Transformer"""
