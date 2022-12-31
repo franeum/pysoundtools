@@ -1,13 +1,19 @@
 #!/usr/bin/env python3
 
 import sys
+import librosa
+import numpy as np
 from pathlib import Path
 import common
+from PyQt6 import QtCore
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import QApplication, QDialog, QMainWindow, QPushButton, QFileDialog
+from pyqtgraph import PlotWidget, plot
+import pyqtgraph as pg
 from views.converterMain import Ui_MainWin
 from views.finishWindow import Ui_Form
 from views.mainMenu import Ui_MainMenu
+from views.onsetDetectorMain import Ui_onsetDetectorMain
 from converter.backend import AudioConverter
 
 DEF_SAMPLERATE = 44100
@@ -16,18 +22,7 @@ DEF_NR_OF_CHANNELS = 1
 
 
 class Window(QMainWindow):
-    """Main window.
-
-    def __init__(self, parent=None):
-        super().__init__(parent)
-        self.central_widget = QPushButton("CONVERTER")
-        self.central_widget.clicked.connect(self.on_converter_btn_clicked)
-        self.setCentralWidget(self.central_widget)
-
-    # Create a slot for launching the employee dialog
-    def on_converter_btn_clicked(self):
-        dlg = ConverterDlg()
-        dlg.exec()
+    """Main window
     """
 
     def __init__(self, parent=None):
@@ -37,10 +32,19 @@ class Window(QMainWindow):
         # Run the .setupUi() method to show the GUI
         self.ui.setupUi(self)
         self.ui.converter_push.clicked.connect(self.on_converter_btn_clicked)
+        self.ui.onset_detector_push.clicked.connect(
+            self.on_onset_detector_btn_clicked)
 
     def on_converter_btn_clicked(self):
         dlg = ConverterDlg()
         dlg.exec()
+
+    def on_onset_detector_btn_clicked(self):
+        dlg = OnsetDetectorDlg()
+        dlg.setGeometry(0, 0, 1280, 600)
+        # dlg.show()
+        dlg.exec()
+        # sys.exit(dlg.exec())
 
 
 class ConverterDlg(QDialog):
@@ -146,6 +150,27 @@ class FinishWindow(QDialog):
         # Run the .setupUi() method to show the GUI
         self.ui.setupUi(self)
         self.ui.exit_push.clicked.connect(self.close)
+
+
+class OnsetDetectorDlg(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        # Create an instance of the GUI
+        # self.ui = Ui_onsetDetectorMain()
+        # self.ui.setupUi(self)
+
+        self.graphWidget = pg.PlotWidget()
+        # self.ui.setCentralWidget(self.graphWidget)
+        self.setGeometry(QtCore.QRect(10, 10, 681, 491))
+
+        data, sr = librosa.load(
+            '../study/AirSolo_ImpP4Po441.wav', mono=True, sr=44100)
+        # onset = librosa.onset.onset_detect(y=data, sr=sr, units='time')
+
+        hour = np.linspace(0, len(data), len(data))
+        temperature = data
+
+        self.graphWidget.plot(hour, temperature)
 
 
 if __name__ == "__main__":

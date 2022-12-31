@@ -9,7 +9,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        uic.loadUi("./mainMenu.ui", self)
+        uic.loadUi("./onsetDetectorMain.ui", self)
 
 
 app = QtWidgets.QApplication(sys.argv)
