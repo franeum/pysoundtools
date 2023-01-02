@@ -21,7 +21,7 @@ class OnsetDetectorDlg(QDialog):
         self.main_ui.setupUi(self)
 
         self.main_ui.graphWidget = pg.PlotWidget()
-        self.main_ui.graphWidget.setBackground(QColor(200, 200, 200))
+        self.main_ui.graphWidget.setBackground(QColor(100, 100, 100))
         self.main_ui.layout_for_graph.addWidget(self.main_ui.graphWidget)
 
         points = [1000, 5000, 10000, 20000]
@@ -32,7 +32,7 @@ class OnsetDetectorDlg(QDialog):
         hour = np.linspace(0, len(data), len(data))
         temperature = data
 
-        pen = pg.mkPen(color=(51, 255, 249))
+        pen = pg.mkPen(color=(20, 225, 219))
         self.main_ui.graphWidget.plot(hour, temperature, pen=pen)
 
         pen = pg.mkPen(color=(255, 0, 0))

@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_onsetDetectorMain(object):
     def setupUi(self, onsetDetectorMain):
         onsetDetectorMain.setObjectName("onsetDetectorMain")
-        onsetDetectorMain.resize(1344, 510)
+        onsetDetectorMain.resize(1246, 510)
         self.frame = QtWidgets.QFrame(onsetDetectorMain)
         self.frame.setGeometry(QtCore.QRect(10, 10, 681, 491))
         font = QtGui.QFont()
@@ -257,7 +257,7 @@ class Ui_onsetDetectorMain(object):
         self.perform_push.setStyleSheet("background-color: rgb(85, 170, 255);")
         self.perform_push.setObjectName("perform_push")
         self.verticalLayoutWidget = QtWidgets.QWidget(onsetDetectorMain)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(699, 9, 641, 491))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(699, 9, 421, 241))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.layout_for_graph = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.layout_for_graph.setContentsMargins(0, 0, 0, 0)

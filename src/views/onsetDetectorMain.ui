@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1344</width>
+    <width>1246</width>
     <height>510</height>
    </rect>
   </property>
@@ -485,8 +485,8 @@ border-radius: 	15px;</string>
     <rect>
      <x>699</x>
      <y>9</y>
-     <width>641</width>
-     <height>491</height>
+     <width>421</width>
+     <height>241</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="layout_for_graph"/>
