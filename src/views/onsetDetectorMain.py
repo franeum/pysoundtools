@@ -257,7 +257,7 @@ class Ui_onsetDetectorMain(object):
         self.perform_push.setStyleSheet("background-color: rgb(85, 170, 255);")
         self.perform_push.setObjectName("perform_push")
         self.verticalLayoutWidget = QtWidgets.QWidget(onsetDetectorMain)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(699, 9, 421, 241))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(699, 9, 541, 241))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.layout_for_graph = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.layout_for_graph.setContentsMargins(0, 0, 0, 0)

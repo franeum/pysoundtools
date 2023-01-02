@@ -8,8 +8,6 @@ from PyQt6.QtGui import QColor
 import pyqtgraph as pg
 from views.onsetDetectorMain import Ui_onsetDetectorMain
 
-# from pyqtgraph import PlotWidget, plot
-
 
 class OnsetDetectorDlg(QDialog):
     """onset detector main dialog"""
@@ -17,6 +15,7 @@ class OnsetDetectorDlg(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         # Create an instance of the GUI
+        pg.setConfigOption('leftButtonPan', False)
         self.main_ui = Ui_onsetDetectorMain()
         self.main_ui.setupUi(self)
 
