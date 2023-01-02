@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 
+from converter.backend import AudioConverter
+from views.onsetDetectorMain import Ui_onsetDetectorMain
+from views.mainMenu import Ui_MainMenu
+from views.finishWindow import Ui_Form
+from views.converterMain import Ui_MainWin
+import pyqtgraph as pg
+from pyqtgraph import PlotWidget, plot
 import sys
 import librosa
 import numpy as np
@@ -7,14 +14,8 @@ from pathlib import Path
 import common
 from PyQt6 import QtCore
 from PyQt6.QtCore import Qt
-from PyQt6.QtWidgets import QApplication, QDialog, QMainWindow, QPushButton, QFileDialog
-from pyqtgraph import PlotWidget, plot
-import pyqtgraph as pg
-from views.converterMain import Ui_MainWin
-from views.finishWindow import Ui_Form
-from views.mainMenu import Ui_MainMenu
-from views.onsetDetectorMain import Ui_onsetDetectorMain
-from converter.backend import AudioConverter
+from PyQt6.QtWidgets import (QApplication, QDialog, QMainWindow,
+                             QPushButton, QFileDialog, QVBoxLayout)
 
 DEF_SAMPLERATE = 44100
 DEF_FILETYPE = 'wav'
@@ -156,12 +157,11 @@ class OnsetDetectorDlg(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         # Create an instance of the GUI
-        # self.ui = Ui_onsetDetectorMain()
-        # self.ui.setupUi(self)
+        self.ui = Ui_onsetDetectorMain()
+        self.ui.setupUi(self)
 
-        self.graphWidget = pg.PlotWidget()
-        # self.ui.setCentralWidget(self.graphWidget)
-        self.setGeometry(QtCore.QRect(10, 10, 681, 491))
+        self.ui.graphWidget = pg.PlotWidget()
+        self.ui.layout_for_graph.addWidget(self.ui.graphWidget)
 
         data, sr = librosa.load(
             '../study/AirSolo_ImpP4Po441.wav', mono=True, sr=44100)
@@ -170,7 +170,9 @@ class OnsetDetectorDlg(QDialog):
         hour = np.linspace(0, len(data), len(data))
         temperature = data
 
-        self.graphWidget.plot(hour, temperature)
+        self.ui.graphWidget.plot(hour, temperature)
+
+        # self.setLayout(self.ui.layout_for_graph)
 
 
 if __name__ == "__main__":
