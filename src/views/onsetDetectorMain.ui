@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1246</width>
-    <height>510</height>
+    <width>699</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>10</x>
      <y>10</y>
      <width>681</width>
-     <height>491</height>
+     <height>581</height>
     </rect>
    </property>
    <property name="font">
@@ -149,9 +149,9 @@ border-radius: 	15px;</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>290</y>
+      <y>370</y>
       <width>641</width>
-      <height>121</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="font">
@@ -263,170 +263,6 @@ border-radius: 	15px;</string>
      </layout>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_4">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>160</y>
-      <width>641</width>
-      <height>121</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Sans Serif</family>
-      <pointsize>14</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-      <underline>false</underline>
-      <strikeout>false</strikeout>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(210, 255, 255);</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-    <widget class="QWidget" name="gridLayoutWidget_3">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>621</width>
-       <height>109</height>
-      </rect>
-     </property>
-     <layout class="QGridLayout" name="gridLayout_3">
-      <item row="1" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
-         <widget class="QLabel" name="label_5">
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>sample rate:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="sr_dropdown">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 255);</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_6">
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>channels:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="channels_dropdown">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 255);</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="font">
-         <font>
-          <family>Noto Sans</family>
-          <pointsize>14</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-          <underline>false</underline>
-          <strikeout>false</strikeout>
-          <kerning>true</kerning>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(85, 255, 255);
-border: 1px solid black;
-border-radius: 	15px;</string>
-        </property>
-        <property name="text">
-         <string>CONFIG</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
-        <item>
-         <widget class="QLabel" name="label_7">
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>format:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="format_dropdown">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 255);</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_8">
-          <property name="font">
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>subtype:</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="subtype_dropdown">
-          <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 170, 255);</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </widget>
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
@@ -457,7 +293,7 @@ border-radius: 	15px;</string>
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>430</y>
+      <y>520</y>
       <width>121</width>
       <height>41</height>
      </rect>
@@ -479,17 +315,17 @@ border-radius: 	15px;</string>
      <string>PERFORM</string>
     </property>
    </widget>
-  </widget>
-  <widget class="QWidget" name="verticalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>699</x>
-     <y>9</y>
-     <width>541</width>
-     <height>241</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="layout_for_graph"/>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>160</y>
+      <width>641</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="layout_for_graph"/>
+   </widget>
   </widget>
  </widget>
  <resources/>
