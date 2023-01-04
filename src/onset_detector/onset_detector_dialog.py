@@ -1,6 +1,6 @@
 """onset detector dialog"""
 
-# import librosa
+import librosa
 import numpy as np
 
 from PyQt6.QtWidgets import QDialog
@@ -25,7 +25,6 @@ class OnsetDetectorDlg(QDialog):
 
         points = [1000, 5000, 10000, 20000]
 
-        """
         data, _ = librosa.load(
             '../study/AirSolo_ImpP4Po441.wav', mono=True, sr=44100)
 
@@ -38,5 +37,5 @@ class OnsetDetectorDlg(QDialog):
         pen = pg.mkPen(color=(255, 0, 0))
         for i in points:
             self.main_ui.graphWidget.plot([i, i], [-1, 1], width=3, pen=pen)
-        """
+        
         # self.setLayout(self.main_ui.layout_for_graph)
