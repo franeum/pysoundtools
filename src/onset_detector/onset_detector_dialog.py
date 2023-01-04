@@ -15,12 +15,12 @@ class OnsetDetectorDlg(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         # Create an instance of the GUI
-        pg.setConfigOption('leftButtonPan', False)
         self.main_ui = Ui_onsetDetectorMain()
         self.main_ui.setupUi(self)
 
         self.main_ui.graphWidget = pg.PlotWidget()
         self.main_ui.graphWidget.setBackground(QColor(100, 100, 100))
+        self.main_ui.graphWidget.plotItem.setMouseEnabled(y=False)
         self.main_ui.layout_for_graph.addWidget(self.main_ui.graphWidget)
 
         points = [1000, 5000, 10000, 20000]
