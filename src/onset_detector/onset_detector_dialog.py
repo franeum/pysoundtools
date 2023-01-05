@@ -17,6 +17,7 @@ class OnsetDetectorDlg(QDialog):
         # Create an instance of the GUI
         self.main_ui = Ui_onsetDetectorMain()
         self.main_ui.setupUi(self)
+        self.setFixedSize(self.size())
 
         self.main_ui.graphWidget = pg.PlotWidget()
         self.main_ui.graphWidget.setBackground(QColor(100, 100, 100))
@@ -26,7 +27,7 @@ class OnsetDetectorDlg(QDialog):
         points = [1000, 5000, 10000, 20000]
 
         data, _ = librosa.load(
-            '../study/AirSolo_ImpP4Po441.wav', mono=True, sr=44100)
+            '/home/neum/Documenti/pysoundtools/study/AirSolo_ImpP4Po441.wav', mono=True, sr=44100)
 
         hour = np.linspace(0, len(data), len(data))
         temperature = data
@@ -37,5 +38,5 @@ class OnsetDetectorDlg(QDialog):
         pen = pg.mkPen(color=(255, 0, 0))
         for i in points:
             self.main_ui.graphWidget.plot([i, i], [-1, 1], width=3, pen=pen)
-        
+
         # self.setLayout(self.main_ui.layout_for_graph)

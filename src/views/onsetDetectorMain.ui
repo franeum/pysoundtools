@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>699</width>
+    <width>700</width>
     <height>600</height>
    </rect>
   </property>
@@ -315,16 +315,32 @@ border-radius: 	15px;</string>
      <string>PERFORM</string>
     </property>
    </widget>
-   <widget class="QWidget" name="verticalLayoutWidget">
+   <widget class="QFrame" name="frame_for_graph">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>160</y>
+      <x>19</x>
+      <y>169</y>
       <width>641</width>
-      <height>201</height>
+      <height>191</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="layout_for_graph"/>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QWidget" name="verticalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>9</x>
+       <y>9</y>
+       <width>621</width>
+       <height>171</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="layout_for_graph"/>
+    </widget>
    </widget>
   </widget>
  </widget>
