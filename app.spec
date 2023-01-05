@@ -6,10 +6,10 @@ block_cipher = None
 
 a = Analysis(
     ['src/app.py'],
-    pathex=[],
+    pathex=['src/'],
     binaries=[],
-    datas=[],
-    hiddenimports=[],
+    datas=[('/home/neum/Documenti/pysoundtools/venv/lib/python3.9/site-packages/librosa/util/example_data/*.*','librosa/util/example_data')],
+    hiddenimports=['sklearn.metrics._pairwise_distances_reduction._datasets_pair','sklearn.metrics._pairwise_distances_reduction._middle_term_computer'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
