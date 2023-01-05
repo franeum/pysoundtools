@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>onsetDetectorMain</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 204);</string>
+  </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
@@ -33,7 +36,7 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true"/>
+    <string notr="true">background-color: rgb(255, 255, 153);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -61,7 +64,7 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(210, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 102);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -94,7 +97,7 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(85, 255, 255);
+         <string notr="true">background-color: rgb(255, 255, 102);
 border: 1px solid black;
 border-radius: 	15px;</string>
         </property>
@@ -165,7 +168,7 @@ border-radius: 	15px;</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(210, 255, 255);</string>
+     <string notr="true">background-color: rgb(255, 255, 102);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -229,8 +232,7 @@ border-radius: 	15px;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(85, 255, 255);
-background-color: rgb(85, 255, 255);
+         <string notr="true">background-color: rgb(255, 255, 102);
 border: 1px solid black;
 border-radius: 	15px;</string>
         </property>

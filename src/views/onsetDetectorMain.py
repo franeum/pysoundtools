@@ -13,6 +13,7 @@ class Ui_onsetDetectorMain(object):
     def setupUi(self, onsetDetectorMain):
         onsetDetectorMain.setObjectName("onsetDetectorMain")
         onsetDetectorMain.resize(700, 600)
+        onsetDetectorMain.setStyleSheet("background-color: rgb(255, 255, 204);")
         self.frame = QtWidgets.QFrame(onsetDetectorMain)
         self.frame.setGeometry(QtCore.QRect(10, 10, 681, 581))
         font = QtGui.QFont()
@@ -23,7 +24,7 @@ class Ui_onsetDetectorMain(object):
         font.setWeight(50)
         font.setStrikeOut(False)
         self.frame.setFont(font)
-        self.frame.setStyleSheet("")
+        self.frame.setStyleSheet("background-color: rgb(255, 255, 153);")
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame.setObjectName("frame")
@@ -37,7 +38,7 @@ class Ui_onsetDetectorMain(object):
         font.setWeight(50)
         font.setStrikeOut(False)
         self.frame_2.setFont(font)
-        self.frame_2.setStyleSheet("background-color: rgb(210, 255, 255);")
+        self.frame_2.setStyleSheet("background-color: rgb(255, 255, 102);")
         self.frame_2.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_2.setObjectName("frame_2")
@@ -58,7 +59,7 @@ class Ui_onsetDetectorMain(object):
         font.setStrikeOut(False)
         font.setKerning(True)
         self.label_2.setFont(font)
-        self.label_2.setStyleSheet("background-color: rgb(85, 255, 255);\n"
+        self.label_2.setStyleSheet("background-color: rgb(255, 255, 102);\n"
 "border: 1px solid black;\n"
 "border-radius:     15px;")
         self.label_2.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
@@ -92,7 +93,7 @@ class Ui_onsetDetectorMain(object):
         font.setWeight(50)
         font.setStrikeOut(False)
         self.frame_3.setFont(font)
-        self.frame_3.setStyleSheet("background-color: rgb(210, 255, 255);")
+        self.frame_3.setStyleSheet("background-color: rgb(255, 255, 102);")
         self.frame_3.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_3.setObjectName("frame_3")
@@ -128,8 +129,7 @@ class Ui_onsetDetectorMain(object):
         font.setStrikeOut(False)
         font.setKerning(True)
         self.label_9.setFont(font)
-        self.label_9.setStyleSheet("background-color: rgb(85, 255, 255);\n"
-"background-color: rgb(85, 255, 255);\n"
+        self.label_9.setStyleSheet("background-color: rgb(255, 255, 102);\n"
 "border: 1px solid black;\n"
 "border-radius:     15px;")
         self.label_9.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
